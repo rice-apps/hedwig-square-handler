@@ -1,9 +1,12 @@
-name = "hedwig-square-handler"
-type = "javascript"
+name = "hedwig-square-handler-dev"
+type = "webpack"
 account_id = "a6f6b03ab8e3e13e01783eb6d84e33af"
 workers_dev = true
 route = ""
 zone_id = ""
 
+[env.staging]
+name = "hedwig-square-handler-staging"
+
 [env.production]
-name = "hedwig-square-auth"
+name = "hedwig-square-handler"
