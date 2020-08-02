@@ -25,8 +25,6 @@ async function handleRequest(request) {
         });
 
         if (squareResponse) {
-            
-
             response = new Response("success", { status: 200 });
         } else {
             response = new Response("failure", { status: 404 });
