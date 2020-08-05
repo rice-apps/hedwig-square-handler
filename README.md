@@ -1,6 +1,6 @@
-# 👷 `worker-template` Hello World
+# 👷 Hedwig Square OAuth handler based on `worker-template`
 
-A template for kick starting a Cloudflare worker project.
+A Cloudflare worker which handles onboarding new vendors and returning OAuth tokens for existing vendors.
 
 [`index.js`](https://github.com/cloudflare/worker-template/blob/master/index.js) is the content of the Workers script.
 
