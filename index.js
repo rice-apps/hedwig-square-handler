@@ -13,10 +13,14 @@ addEventListener("fetch", event => {
 async function handleRequest(request) {
     let response;
     if (request.method === "POST") {
-        const { accessCode, vendorName } = await request.json();
+        const { accessCode } = await request.json();
         const body = new ObtainTokenRequest();
 
-        const squareResponse = await apiInstance.obtainToken({
+        const {
+            merchant_id,
+            refresh_token,
+            access_token,
+        } = await apiInstance.obtainToken({
             ...body,
             client_id: SQUARE_APP_ID,
             client_secret: SQUARE_APP_SECRET,
@@ -24,7 +28,9 @@ async function handleRequest(request) {
             code: accessCode,
         });
 
-        if (squareResponse) {
+        if (refresh_token) {
+            await AUTH.put(merchant_id, { refresh_token, access_token });
+
             response = new Response("success", { status: 200 });
         } else {
             response = new Response("failure", { status: 404 });
