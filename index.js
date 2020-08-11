@@ -2,7 +2,7 @@ import { OAuthApi, ObtainTokenRequest } from "square-connect";
 import jwt from "jsonwebtoken";
 import moment from "moment";
 
-let api = new OAuthApi();
+const api = new OAuthApi();
 
 addEventListener("fetch", event => {
     event.respondWith(handleRequest(event.request));
@@ -13,7 +13,7 @@ addEventListener("fetch", event => {
  * @param {Request} request represents request sent by Hedwig Square Plugin client
  * @returns {Promise<Response>} the reponse of this request handler
  */
-async function handleRequest(request) {
+async function handleRequest (request) {
     let response = new Response("Invalid request type", { status: 405 });
 
     if (request.method === "POST") {
@@ -46,7 +46,7 @@ async function handleRequest(request) {
  * @param {string} accessCode access code provided to the worker by Square
  * @returns {Promise<boolean>} indicating whether storing the refresh token succeeded
  */
-async function newVendorRequest(accessCode) {
+async function newVendorRequest (accessCode) {
     const {
         merchant_id,
         refresh_token,
@@ -80,7 +80,7 @@ async function newVendorRequest(accessCode) {
  * @returns {Promise<string>} OAuth access token for the merchant
  */
 
-async function checkVendorExpiration(merchant) {
+async function checkVendorExpiration (merchant) {
     const { refresh_token, access_token, expires_at } = await AUTH.get(
         merchant,
     );
