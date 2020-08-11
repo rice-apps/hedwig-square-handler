@@ -80,8 +80,8 @@ async function newVendorRequest (accessCode) {
  * @returns {Promise<string>} OAuth access token for the merchant
  */
 
-async function checkVendorExpiration (merchant) {
-    const { refresh_token, access_token, expires_at } = await AUTH.get(
+async function checkVendorExpiration(merchant) {
+    const { refresh_token, access_token, expires_at, ...rest } = await AUTH.get(
         merchant,
     );
 
@@ -99,9 +99,10 @@ async function checkVendorExpiration (merchant) {
 
         await AUTH.delete(merchant_id);
         await AUTH.put(merchant_id, {
-            same_refresh_token,
-            new_access_token,
+            refresh_token: same_refresh_token,
+            access_token: new_access_token,
             expires_at: new_expires_at,
+            ...rest,
         });
 
         return new_access_token;
