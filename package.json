@@ -1,21 +1,21 @@
 {
-    "private": true,
-    "name": "hedwig-square-handler",
-    "version": "1.0.0",
-    "description": "A template for kick starting a Cloudflare Workers project",
-    "main": "index.js",
-    "scripts": {
-        "lint": "prettier-standard --lint"
-    },
-    "author": "Victor Song <vms2@rice.edu>",
-    "license": "MIT",
-    "devDependencies": {
-        "prettier-standard": "^16.4.1",
-        "typescript": "^3.9.7"
-    },
-    "dependencies": {
-        "jsonwebtoken": "^8.5.1",
-        "moment": "^2.27.0",
-        "square-connect": "^4.20200812.2"
-    }
+  "private": true,
+  "name": "hedwig-square-handler",
+  "version": "1.0.0",
+  "description": "A template for kick starting a Cloudflare Workers project",
+  "main": "index.js",
+  "scripts": {
+    "lint": "prettier-standard --lint"
+  },
+  "author": "Victor Song <vms2@rice.edu>",
+  "license": "MIT",
+  "devDependencies": {
+    "prettier-standard": "^16.4.1",
+    "typescript": "^3.9.7"
+  },
+  "dependencies": {
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.27.0",
+    "square": "^8.0.1"
+  }
 }
